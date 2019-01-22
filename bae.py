@@ -7,20 +7,23 @@ serversocket.listen(1)
 
 (clientsocket, address) = serversocket.accept()
 msg = clientsocket.recv(1024)
-print("server recieved "+msg.decode("utf-8"))
+msg = msg.decode("utf-8")
+print("server recieved "+msg)
 
-msg = b"""
-HTTP/1.1
-Content-Type: text/html
+if msg == "graphics":
+    msg = b"[[1,0],[250,45],[20,56]]"
+else :
+    msg = b"""
+    HTTP/1.1
+    Content-Type: text/html
 
-<html>
-<body>
-<b>Hello World</b>
-</body>
-</html>
+    <html>
+    <body>
+    <b>Hello World</b>
+    </body>
+    </html>
 
-"""
-
+    """
 
 print(b"server sending reply")
 clientsocket.send(msg)
