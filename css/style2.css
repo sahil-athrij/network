@@ -1,0 +1,230 @@
+
+ul {
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background:transparent;
+    font-size: 33px;
+    position: fixed;
+    alignment: top;
+    top: 0;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+
+    text-decoration: none;
+}
+
+.active {
+    background:transparent;
+}
+
+
+
+.emailicon{
+
+
+}
+
+.emailpng{
+
+    opacity: 0;
+    position: fixed;
+    left:90%;
+    top:10%;
+    margin-left:-50px; /* -1/2 width */
+    margin-top:-50px; /* -1/2 height */
+
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+
+.car {
+    opacity: .7;
+    background: #000;
+    position: fixed;
+
+    height: 100%;
+
+
+    top:50%;
+    left:50%;
+    -moz-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+    width: 100%;
+    z-index: 1;
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+}
+
+.button {
+    position: relative;
+    left:50%;
+    top:70%;
+
+    color: white;
+    padding: 10px 28px;
+    font-size: 30px;
+
+    margin-left:-190px; /* -1/2 width */
+    margin-top: -20px;
+
+
+}
+
+.default {
+    color: white;
+}
+
+
+
+
+.loading {
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    z-index: -101;
+    background-size: cover;
+    margin-left: -100px; /* -1/2 width */
+    margin-top: -100px;
+    opacity: 0;
+}
+
+.scroll {
+
+    position: fixed;
+    left: 50%;
+    top: 92%;
+    width: 50px;
+    height: 50px;
+    z-index: 0;
+    background-size: cover;
+    margin-left: -25px; /* -1/2 width */
+    margin-top: -25px;
+    opacity: 0;
+}
+
+.emailpng span {
+    max-width: 0;
+    -webkit-transition: max-width 1s;
+    transition: max-width 1s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.email:hover span {
+    max-width: 7rem;
+}
+
+
+#clockdiv{
+    top:120%;
+    position: fixed;
+    left: 50%;
+    margin-left: -300px;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+
+
+
+}
+
+#clockdiv > div{
+
+
+    padding: 10px;
+    border-radius: 3px;
+    background: clear;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.smalltext{
+    opacity: 1;
+    padding-top: 5px;
+
+}
+
+
+
+.card {
+    /* Add shadows to create the "card" effect */
+
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: white;
+    padding: 2px 16px;
+    margin: 0 0 20px 10px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    color:black;
+    padding: 2px 16px;
+}
+
+
+.landscape{
+    position: fixed;
+    min-width: 100%;
+
+    bottom:-600px;
+    left: 50%;
+    width: auto;
+    height: auto;
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    filter: brightness(95%);
+
+}
+
+@media screen and (max-width:680px  ){
+    .scroll {
+        position: fixed;
+        left: 50%;
+        top: 92%;
+        width: 100px;
+        height: 100px;
+        z-index: 0;
+        background-size: cover;
+        margin-left: -50px; /* -1/2 width */
+        margin-top: -50px;
+        opacity: 0;
+    }
+}
