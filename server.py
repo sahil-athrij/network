@@ -1,6 +1,7 @@
 
 import socket                   # Import socket module
 import os
+from contextlib import redirect_stdout
 
 def processrequest(request):
     req = request.decode("utf-8")
@@ -43,18 +44,48 @@ def sendfile(filepath,conn):
             if file_ext[1] in "js":
                 l += f"""\nContent-Type: text/javascript\n\n""".encode("utf-8")
 
+    filename = filepath.split("/")
+    file_ext = filename[-1].split(".")
 
 
     try:
+
         f = open(filepath[1:], 'rb')
-        l += f.read()
+
+
+        text = f.read()
+        if file_ext[-1] == "html":
+            start = text.find(b"<python>")
+            temp = text[:start]
+            stop = text.find(b"</python>")
+
+
+            pyth = text[start+len("<python>"):stop]
+            pyth = pyth.replace(b"    ", b"")
+            s = pyth.decode()
+            print(s)
+
+            print(pyth)
+            with open('help.txt', 'w+') as fr:
+                with redirect_stdout(fr):
+                    eval(s)
+                fr.seek(0)
+                ev = fr.read()
+                t = ev.encode()
+                temp+=t
+
+            temp += text[stop:]
+            text = temp
+
+        l+=text
         while (l):
             conn.send(l)
             l = f.read(1024)
         f.close()
 
-    except:
+    except Exception as e:
         l = b"""HTTP/1.1 404"""
+        print(e)
         conn.send(l)
 
 port = 12345                    # Reserve a port for your service.
